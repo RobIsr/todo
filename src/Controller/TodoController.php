@@ -15,6 +15,7 @@ class TodoController extends AbstractController
      */
     public function index(): Response
     {
+        $this->denyAccessUnlessGranted('ROLE_USER');
         return $this->render('content/todo.html.twig', [
             'title' => 'Todo List',
         ]);
