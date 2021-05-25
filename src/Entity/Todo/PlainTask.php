@@ -16,6 +16,11 @@ class PlainTask {
     */
     private $message;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    public $type = "PlainTask";
+
     public function getMessage(): ?string
     {
         return $this->message;

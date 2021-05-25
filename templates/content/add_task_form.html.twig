@@ -1,16 +1,28 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+    {% set current_path = app.request.get('_route') %}
     {{ form_start(form, {'attr': {'id': 'add_task_form'}}) }}
         {{ form_errors(form) }}
         <label for="task_type">Select task type</label>
-        <select class="form-select mb-2" name="task_type" id="task_type">
-            <option selected value="Plain Task">Plain Task</option>
-            <option value="Shopping Task">Shopping Task</option>
-        </select>
+        <div id="task_type" class="btn-group">
+            <a href="{{path('addTask')}}" class="btn btn-primary {{current_path == 'addTask' ? 'active' : ''}} btn-sm" aria-current="page">Plain Task</a>
+            <a href="{{path('addShoppingTask')}}" class="btn btn-primary {{current_path == 'addShoppingTask' ? 'active' : ''}} btn-sm" aria-current="page">Shopping Task</a>
+        </div>
+        {# <div id="task-type" class="btn-group" role="group" aria-label="Task type">
+            <a href="{{path('addTask')}}">
+                <button style="border-radius: 0;" type="button" class="btn btn-secondary">Plain Task</button>
+            </a>
+            <a href="{{path('addShoppingTask')}}">
+                <button style="border-radius: 0;" type="button" class="btn btn-secondary">Shopping Task</button>
+            </a>
+        </div> #}
         {{ form_row(form.title) }}
         {{ form_row(form.message) }}
 
         {{ form_row(form.save) }}
     {{ form_end(form) }}
+    <a href="{{path('index')}}">
+        <button type="button" class="btn btn-secondary">Back</button>
+    </a>
 {% endblock %}

@@ -8,6 +8,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorageInterface;
 use App\Entity\Todo\PlainTask;
+use App\Entity\Todo\ShoppingTask;
 
 class TodoController extends AbstractController
 {
@@ -18,11 +19,19 @@ class TodoController extends AbstractController
     public function index(TokenStorageInterface $user): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        $repository = $this->getDoctrine()->getRepository(PlainTask::class);
-        $tasks = $repository->findAll();
-        $tasks = $repository->findBy(
+        $plainTaskRepository = $this->getDoctrine()->getRepository(PlainTask::class);
+        $plainTasks = $plainTaskRepository->findAll();
+        $plainTasks = $plainTaskRepository->findBy(
             ['userId' => $user->getToken()->getUser()],
         );
+        $shoppingTaskRepository = $this->getDoctrine()->getRepository(ShoppingTask::class);
+        $shoppingTasks = $shoppingTaskRepository->findAll();
+        $shoppingTasks = $shoppingTaskRepository->findBy(
+            ['userId' => $user->getToken()->getUser()],
+        );
+
+        $tasks = array_merge($plainTasks, $shoppingTasks);
+
         return $this->render('content/todo.html.twig', [
             'title' => 'Todo List',
             'tasks' => $tasks

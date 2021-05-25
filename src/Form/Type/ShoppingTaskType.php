@@ -13,7 +13,7 @@ class ShoppingTaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-        ->add('Store', TextType::class)
+        ->add('Title', TextType::class)
         ->add('Products', CollectionType::class,
             array (
                     'entry_type'    => TextType::class,

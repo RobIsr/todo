@@ -1,10 +1,19 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
+    {% set current_path = app.request.get('_route') %}
+    <label for="task_type">Select task type</label>
+    <div id="task_type" class="btn-group">
+        <a href="{{path('addTask')}}" class="btn btn-primary {{current_path == 'addTask' ? 'active' : ''}} btn-sm" aria-current="page">Plain Task</a>
+        <a href="{{path('addShoppingTask')}}" class="btn btn-primary {{current_path == 'addShoppingTask' ? 'active' : ''}} btn-sm" aria-current="page">Shopping Task</a>
+    </div>
     {% form_theme form 'jquery.collection.html.twig' %}
     {{ form(form) }}
+    <a href="{{path('index')}}">
+        <button type="button" class="btn btn-secondary">Back</button>
+    </a>
+    
     <script src="{{ asset('js/jquery.collection.js') }}"></script>
-
     <script type="text/javascript">
         $('.my-selector').collection({
             allow_up: false,
