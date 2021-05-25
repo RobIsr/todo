@@ -9,6 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Security\Core\User\UserInterface;
 use App\Entity\Todo\PlainTask;
 use App\Form\Type\TaskFormType;
+use App\Form\Type\ShoppingTaskType;
 
 class TaskListController extends AbstractController
 {
@@ -50,26 +51,14 @@ class TaskListController extends AbstractController
     public function addShoppingTask(Request $request, UserInterface $user): Response
     {
         $this->denyAccessUnlessGranted('ROLE_USER');
-        $task = new PlainTask();
-        $form = $this->createForm(TaskFormType::class, $task);
+        $form = $this->createForm(ShoppingTaskType::class);
 
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
-            // $form->getData() holds the submitted values
-            // but, the original `$task` variable has also been updated
-            $task = $form->getData();
-            $task->setUserId($user->getId());
-
-            // ... perform some action, such as saving the task to the database
-            // for example, if Task is a Doctrine entity, save it!
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->persist($task);
-            $entityManager->flush();
-
             return $this->redirectToRoute('index');
         }
 
-        return $this->render('content/add_task_form.html.twig', [
+        return $this->render('content/add_shopping_task.html.twig', [
             'form' => $form->createView(),
         ]);
     }

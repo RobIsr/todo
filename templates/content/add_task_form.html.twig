@@ -1,8 +1,16 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <div>
-        <a href="{{ path('addTask') }}">Plain Task</a>
-    </div>
-    {{ form(form) }}
+    {{ form_start(form, {'attr': {'id': 'add_task_form'}}) }}
+        {{ form_errors(form) }}
+        <label for="task_type">Select task type</label>
+        <select class="form-select mb-2" name="task_type" id="task_type">
+            <option selected value="Plain Task">Plain Task</option>
+            <option value="Shopping Task">Shopping Task</option>
+        </select>
+        {{ form_row(form.title) }}
+        {{ form_row(form.message) }}
+
+        {{ form_row(form.save) }}
+    {{ form_end(form) }}
 {% endblock %}
