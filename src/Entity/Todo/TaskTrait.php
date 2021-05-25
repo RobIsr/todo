@@ -2,12 +2,8 @@
 
 namespace App\Entity\Todo;
 
-use App\Repository\TaskRepository;
 use Doctrine\ORM\Mapping as ORM;
 
-/**
- * @ORM\Entity(repositoryClass=TaskRepository::class)
- */
 trait TaskTrait
 {
     /**
@@ -37,9 +33,10 @@ trait TaskTrait
         return $this->userId;
     }
 
-    public function setUserId(int $id): ?int
+    public function setUserId(int $id): self
     {
         $this->userId = $id;
+        return $this;
     }
 
     public function getTitle(): ?string
