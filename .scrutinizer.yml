@@ -1,0 +1,17 @@
+build:
+  environment:
+        php: 7.4.16
+  nodes:
+    coverage:
+      tests:
+        override:
+          - command: make test
+            coverage:
+              file: build/coverage.clover  # <- Set this to where we find the coverage data.
+                                          #    The path is relative to the current directory.
+              format: clover
+    analysis:
+      tests:
+        override:
+          # Add the respective Scrutinizer analysis for your language like
+          - php-scrutinizer-run
