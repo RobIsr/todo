@@ -1,8 +1,6 @@
 {% extends 'layout.html.twig' %}
 
 {% block content %}
-    <h1 class="h3 mb-3 font-weight-normal">{{ title }}</h1>
-
     {% if tasks|length > 0 %}
         {% for task in tasks %}
             <div class="card container-sm mt-2">
@@ -10,8 +8,8 @@
                     {% if task.type == "PlainTask" %}
                         <h5 class="card-title">{{ task.title }}</h5>
                         <p class="card-text">{{ task.message }}</p>
-                        <a href="{{ path('removeTask', {id: task.id }) }}">Delete</a>
-                        <a href="{{ path('updateTask', {id: task.id }) }}">Update</a>
+                        <a href="{{ path('removeTask', {taskId: task.id }) }}">Delete</a>
+                        <a href="{{ path('updateTask', {taskId: task.id }) }}">Update</a>
                     {% else %}
                         <h5 class="card-title">{{ task.title }}</h5>
                         <ul>
@@ -19,8 +17,8 @@
                                 <li>{{ product }}</li>
                             {% endfor %}
                         </ul>
-                        <a href="{{ path('removeShoppingTask', {id: task.id }) }}">Delete</a>
-                        <a href="{{ path('updateShoppingTask', {id: task.id }) }}">Update</a>
+                        <a href="{{ path('removeShoppingTask', {taskId: task.id }) }}">Delete</a>
+                        <a href="{{ path('updateShoppingTask', {taskId: task.id }) }}">Update</a>
                     {% endif %}
                 </div>
             </div>

@@ -9,14 +9,6 @@
             <a href="{{path('addTask')}}" class="btn btn-primary {{current_path == 'addTask' ? 'active' : ''}} btn-sm" aria-current="page">Plain Task</a>
             <a href="{{path('addShoppingTask')}}" class="btn btn-primary {{current_path == 'addShoppingTask' ? 'active' : ''}} btn-sm" aria-current="page">Shopping Task</a>
         </div>
-        {# <div id="task-type" class="btn-group" role="group" aria-label="Task type">
-            <a href="{{path('addTask')}}">
-                <button style="border-radius: 0;" type="button" class="btn btn-secondary">Plain Task</button>
-            </a>
-            <a href="{{path('addShoppingTask')}}">
-                <button style="border-radius: 0;" type="button" class="btn btn-secondary">Shopping Task</button>
-            </a>
-        </div> #}
         {{ form_row(form.title) }}
         {{ form_row(form.message) }}
 

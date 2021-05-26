@@ -24,9 +24,8 @@ class TodoController extends AbstractController
         $plainTasks = $plainTaskRepository->findBy(
             ['userId' => $user->getToken()->getUser()],
         );
-        $shoppingTaskRepository = $this->getDoctrine()->getRepository(ShoppingTask::class);
-        $shoppingTasks = $shoppingTaskRepository->findAll();
-        $shoppingTasks = $shoppingTaskRepository->findBy(
+        $shoppingRepo = $this->getDoctrine()->getRepository(ShoppingTask::class);
+        $shoppingTasks = $shoppingRepo->findBy(
             ['userId' => $user->getToken()->getUser()],
         );
 

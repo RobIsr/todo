@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity\Todo;
 
 use App\Repository\TaskRepository;
@@ -8,7 +9,8 @@ use App\Entity\Todo\TaskTrait;
 /**
  * @ORM\Entity(repositoryClass=TaskRepository::class)
  */
-class PlainTask {
+class PlainTask
+{
     use TaskTrait;
 
     /**

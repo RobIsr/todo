@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Entity\Todo;
 
 use App\Repository\ShoppingTaskRepository;
@@ -8,7 +9,8 @@ use App\Entity\Todo\TaskTrait;
 /**
  * @ORM\Entity(repositoryClass=ShoppingTaskRepository::class)
  */
-class ShoppingTask {
+class ShoppingTask
+{
     use TaskTrait;
 
 
@@ -21,7 +23,7 @@ class ShoppingTask {
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     public $type = "ShoppingTask";
-    
+
 
     public function getProducts(): array
     {

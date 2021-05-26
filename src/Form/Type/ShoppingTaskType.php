@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Form\Type;
 
 use Symfony\Component\Form\AbstractType;
@@ -7,14 +8,15 @@ use Symfony\Component\Form\Extension\Core\Type\CollectionType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 
-
 class ShoppingTaskType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
         ->add('Title', TextType::class)
-        ->add('Products', CollectionType::class,
+        ->add(
+            'Products',
+            CollectionType::class,
             array (
                     'entry_type'    => TextType::class,
                     'entry_options' => [
@@ -28,7 +30,7 @@ class ShoppingTaskType extends AbstractType
                         'class' => 'my-selector',
                     ),
                 )
-            )
+        )
             ->add('Save', SubmitType::class)
         ;
     }

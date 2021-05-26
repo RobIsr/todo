@@ -80,13 +80,13 @@ class TaskListController extends AbstractController
 
     /**
      *
-     * @Route("/removeTask/{id}", name="removeTask")
+     * @Route("/removeTask/{taskId}", name="removeTask")
      */
-    public function removeTask($id): Response
+    public function removeTask($taskId): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(PlainTask::class);
-        $task = $repository->find($id);
+        $task = $repository->find($taskId);
         $entityManager->remove($task);
         $entityManager->flush();
 
@@ -95,13 +95,13 @@ class TaskListController extends AbstractController
 
     /**
      *
-     * @Route("/removeShoppingTask/{id}", name="removeShoppingTask")
+     * @Route("/removeShoppingTask/{taskId}", name="removeShoppingTask")
      */
-    public function removeShoppingTask($id): Response
+    public function removeShoppingTask($taskId): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(ShoppingTask::class);
-        $task = $repository->find($id);
+        $task = $repository->find($taskId);
         $entityManager->remove($task);
         $entityManager->flush();
 
@@ -110,14 +110,14 @@ class TaskListController extends AbstractController
 
         /**
      *
-     * @Route("/updateTask/{id}", name="updateTask")
+     * @Route("/updateTask/{taskId}", name="updateTask")
      */
-    public function updateTask($id, Request $request, UserInterface $user): Response
+    public function updateTask($taskId, Request $request, UserInterface $user): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(PlainTask::class);
-        $task = $repository->find($id);
-        
+        $task = $repository->find($taskId);
+
         $form = $this->createForm(TaskFormType::class, $task);
 
         $form->handleRequest($request);
@@ -143,14 +143,14 @@ class TaskListController extends AbstractController
 
     /**
      *
-     * @Route("/updateShoppingTask/{id}", name="updateShoppingTask")
+     * @Route("/updateShoppingTask/{taskId}", name="updateShoppingTask")
      */
-    public function updateShoppingTask($id, Request $request, UserInterface $user): Response
+    public function updateShoppingTask($taskId, Request $request, UserInterface $user): Response
     {
         $entityManager = $this->getDoctrine()->getManager();
         $repository = $this->getDoctrine()->getRepository(ShoppingTask::class);
-        $task = $repository->find($id);
-        
+        $task = $repository->find($taskId);
+
         $form = $this->createForm(ShoppingTaskType::class, $task);
 
         $form->handleRequest($request);
