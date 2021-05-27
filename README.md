@@ -16,7 +16,7 @@ The app is created with Symfony.
 This project is created as part of the university course "Object Oriented Web Technologies" at Blekinge Tekniska Högskola.
 
 ### Installation
-To install the app from this repo use composer with command "composer install".
+To install the app from this repo use Make with command "make install".
 
 ### Usage
 
