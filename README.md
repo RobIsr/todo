@@ -10,6 +10,9 @@ Basic Todo application with login and registration of users. Possibility to stor
 
 The app is created with Symfony.
 
+### About the project
+This project is created as part of the university course "Object Oriented Web Technologies" at Blekinge Tekniska Högskola.
+
 ### Installation
 To install the app from this repo use composer with command "composer install".
 
