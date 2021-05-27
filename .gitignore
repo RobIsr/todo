@@ -3,10 +3,16 @@
 /.env.local
 /.env.local.php
 /.env.*.local
+/.bin/phpcbf
+/.bin/phpcpd
+/.bin/phpcs
+/.bin/phploc
+/.bin/phpmd
 /config/secrets/prod/prod.decrypt.private.php
 /public/bundles/
 /var/
 /vendor/
+/build/
 ###< symfony/framework-bundle ###
 
 ###> symfony/phpunit-bridge ###

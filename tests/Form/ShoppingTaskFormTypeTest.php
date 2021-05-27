@@ -1,5 +1,5 @@
 <?php
-// tests/Form/Type/TestedTypeTest.php
+
 namespace App\Tests\Form\Type;
 
 use App\Form\Type\ShoppingTaskType;
@@ -43,5 +43,5 @@ class ShoppingTaskFormTypeTest extends TypeTestCase
         // check that $formData was modified as expected when the form was submitted
         $this->assertEquals($expected->getTitle(), $model->getTitle());
         $this->assertEquals($expected->getProducts(), $model->getProducts());
-    } 
+    }
 }
