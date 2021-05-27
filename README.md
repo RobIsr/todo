@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/RobIsr/todo.svg?branch=main)](https://travis-ci.org/RobIsr/todo)
+
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/RobIsr/todo/badges/quality-score.png?b=main)](https://scrutinizer-ci.com/g/RobIsr/todo/?branch=main)
 
 [![Code Coverage](https://scrutinizer-ci.com/g/RobIsr/todo/badges/coverage.png?b=main)](https://scrutinizer-ci.com/g/RobIsr/todo/?branch=main)
