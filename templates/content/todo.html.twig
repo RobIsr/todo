@@ -8,8 +8,8 @@
                     {% if task.type == "PlainTask" %}
                         <h5 class="card-title">{{ task.title }}</h5>
                         <p class="card-text">{{ task.message }}</p>
-                        <a href="{{ path('removeTask', {taskId: task.id }) }}">Delete</a>
-                        <a href="{{ path('updateTask', {taskId: task.id }) }}">Update</a>
+                        <a href="{{ path('removeTask', {taskId: task.id }) }}" class="mr-3" style="text-decoration: none; color: red;"><i class="bi bi-trash"></i></a>
+                        <a href="{{ path('updateTask', {taskId: task.id }) }}" style="text-decoration: none; color: blue;"><i class="bi bi-pencil"></i></a>
                     {% else %}
                         <h5 class="card-title">{{ task.title }}</h5>
                         <ul>
@@ -17,8 +17,8 @@
                                 <li>{{ product }}</li>
                             {% endfor %}
                         </ul>
-                        <a href="{{ path('removeShoppingTask', {taskId: task.id }) }}">Delete</a>
-                        <a href="{{ path('updateShoppingTask', {taskId: task.id }) }}">Update</a>
+                        <a href="{{ path('removeShoppingTask', {taskId: task.id }) }}" class="mr-3" style="text-decoration: none; color: red;"><i class="bi bi-trash"></i></a>
+                        <a href="{{ path('updateShoppingTask', {taskId: task.id }) }}" style="text-decoration: none; color: blue;"><i class="bi bi-pencil"></i></a>
                     {% endif %}
                 </div>
             </div>
