@@ -23,7 +23,8 @@ clean-all:
 
 install: install-php-tools
 	composer install
-
+	php bin/console doctrine:database:create
+	php bin/console doctrine:migrations:migrate
 install-php-tools:
 	install -d .bin
 
