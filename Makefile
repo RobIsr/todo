@@ -24,7 +24,9 @@ clean-all:
 install: install-php-tools
 	composer install
 	php bin/console doctrine:database:create
-	php bin/console doctrine:migrations:migrate
+	php bin/console --no-interaction doctrine:migrations:migrate
+	chmod 777 var
+	chmod 777 var/data.db
 install-php-tools:
 	install -d .bin
 
