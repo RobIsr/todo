@@ -23,6 +23,7 @@ To install the app from this repo start by cloning the repository using git with
 Make sure to hav a webserver installed and configured to run the app, for example [XAMPP](https://www.apachefriends.org/index.html, "XAMPP"). Place the application folder wher it can be reached by the webserver.
 
 To install the application use [Make](https://www.apachefriends.org/index.html, "Make") with the following command:
+
     make install
 
 This will ensure that the application is installed and also that a database will be created and configured.
